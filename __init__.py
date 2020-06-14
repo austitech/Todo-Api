@@ -23,7 +23,7 @@ def factory(testing=False):
     migrate = Migrate(app, db)
 
     # register endpoints
-    api.add_resource(GetUpdateDeleteView, '/<string:todo_id>')
-    api.add_resource(CreateListView, '/')
+    api.add_resource(GetUpdateDeleteView, '/todo/api/v1/<string:todo_id>')
+    api.add_resource(CreateListView, '/todo/api/v1/')
 
     return app
