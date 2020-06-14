@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 
 from .config import Development, Testing
 from .models import db
-from .api import HelloWorld
+from .api import CreateListView, GetUpdateDeleteView
 
 
 def factory(testing=False):
@@ -23,6 +23,7 @@ def factory(testing=False):
     migrate = Migrate(app, db)
 
     # register endpoints
-    api.add_resource(HelloWorld, '/')
+    api.add_resource(GetUpdateDeleteView, '/<string:todo_id>')
+    api.add_resource(CreateListView, '/')
 
     return app
